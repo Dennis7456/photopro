@@ -39,7 +39,7 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={
-          <section className='flex justify-around from-secondary-container p-20 h-50 bg-image'>
+          <section className='flex justify-around from-secondary-container p-20 h-55 bg-image'>
             <div>
               <p className='tracking-wider text-5xl pr-10 text-on_primary text-left'>Create and share</p>
               <p className='tracking-wider text-5xl mt-10 text-on_primary text-left'>amazing photos</p>
