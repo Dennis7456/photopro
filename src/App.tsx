@@ -2,28 +2,51 @@ import logo from './logo.svg';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Hero from './components/Hero/Hero';
-import { createContext } from 'react';
+import { createContext, useEffect, useState } from 'react';
+import httpClient from './config/httpClient';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import Albums from './pages/Albums/Albums';
 import Photos from './pages/Photos/Photos';
+import BgPhoto from './assets/userimages/bee-7707052.jpg';
+import Footer from './pages/Footer/Footer';
+
+interface UserInterface {
+  id: string,
+  email: string
+}
+export const UserContext = createContext<UserInterface | null>(null);
 
 const App = () => {
+
+  const [user, setUser] = useState<UserInterface | null>(null);
+
+  useEffect(() => {
+    (async() => {
+      try {
+        const response = await httpClient.get("//localhost:5000/@me");
+        setUser(response.data);
+      } catch (error) {
+        console.log("Not Authenticated");
+      }
+    })();
+  }, []);
+  console.log(user)
   return (
     <div className="App">
-      <section className='px-6 py-8 bg-surface'>
+      <section className='px-6 py-4 bg-surface'>
         <NavigationBar />
       </section>
 
       <Routes>
         <Route path='/' element={
-          <section className='bg-gradient-to-r to-primary from-secondary-container flex justify-around items-center p-10 h-20'>
+          <section className='flex justify-around from-secondary-container p-20 h-50 bg-image'>
             <div>
-              <p className='tracking-wider text-5xl pr-10'>Create amazing photos</p>
-              <p className='text-5xl tracking-wider mt-10'>Using our website</p>
-              <p className='text-lg py-10'>Post your artwork and show the world what you can create!</p>
+              <p className='tracking-wider text-5xl pr-10 text-on_primary text-left'>Create and share</p>
+              <p className='tracking-wider text-5xl mt-10 text-on_primary text-left'>amazing photos</p>
+              <p className='text-5xl tracking-wider mt-10 text-left'>on our website</p>
+              <p className='text-lg py-10 italic text-xl'>Post your artwork and show the world what you can create!</p>
             </div>
-            <div>
-              Bg Image
+            <div className=''>
             </div>
           </section>
         }>
@@ -31,6 +54,7 @@ const App = () => {
         <Route path='/photos' element={<Photos/>}></Route>
         <Route path='/albums' element={<Albums/>}></Route>
       </Routes>
+      <section><Footer/></section>
     </div>
   );
 }

@@ -45,23 +45,11 @@ const Hero = () => {
     };
 
     return (
-        <section className="min-h-[740px] w-full bg-background dark:bg-dark_background">
-            <div className="container mx-auto px-4 lg:px-0">
-                {/* header */}
-                <header className="flex justify-between py-8">
-                    {/* logo */}
-                    <div>
-                        <a href="/"><img src={LogoWhite} className="logo"/></a>
-                    </div>
-                    <div className="">
-
-                    </div>
-                    <button onClick={handleThemeSwitch} className="p-4 bg-primary dark:bg-on_primary dark:text-primary text-white rounded-full w-12 h-12 flex justify-center items-center">
+    <>
+    <button onClick={handleThemeSwitch} className="p-4 bg-primary dark:bg-on_primary dark:text-primary text-white rounded-full w-12 h-12 flex justify-center items-center">
                         { theme === 'light' ? <BsMoonFill /> : <BsFillSunFill /> }
-                    </button>
-                </header>
-            </div>
-        </section>
+    </button>
+    </>
     )
 }
 

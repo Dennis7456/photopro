@@ -20,3 +20,10 @@ code {
   height: 48px;
   width: 150px;
 }
+
+.bg-image {
+  background-image: url("/src/assets/userimages/bee-7707052.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

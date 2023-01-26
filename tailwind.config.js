@@ -95,6 +95,9 @@ module.exports = {
         },
         grey: '#494455'
       },
+      backgroundImage: {
+        bgimageLight: "url('/src/assets/userimages/bee-7707052.jpg')"
+      }
     },
   },
   plugins: [],
