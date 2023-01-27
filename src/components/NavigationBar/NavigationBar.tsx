@@ -6,6 +6,8 @@ import { UserContext } from '../../App';
 import httpClient from '../../config/httpClient';
 import Hero from '../Hero/Hero';
 import ThemeContext from '../../context/ThemeContext';
+import LoginModal from '../LoginModal/LoginModal';
+
 const NavigationBar = () => {
 
     const location = useLocation();
@@ -31,9 +33,11 @@ const NavigationBar = () => {
                     </div>
                 </div>
                 <div className='flex justify-between items-center'>
-                    <div className='hover:bg-primary_container hover:rounded-md py-2 px-3 dark:text-on_primary'>Login</div>
+                    {/* <div className='hover:bg-primary_container hover:rounded-md py-2 px-3 dark:text-on_primary'>Login</div> */}
+                    <LoginModal />
                     <span className='pl-10'></span>
-                    <div className=' bg-primary rounded-md py-2 px-3 hover:text-on_primary text-on_primary hover:text-primary_container'>Register</div>
+                    <div className=' bg-primary rounded-md py-2 px-3 hover:text-on_primary text-on_primary hover:text-primary_container'><button type='button'>Register</button></div>
+                    
                     <div className='pl-10'><Hero /></div>
                 </div>
             </div>
