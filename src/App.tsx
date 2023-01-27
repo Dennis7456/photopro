@@ -9,6 +9,7 @@ import Albums from './pages/Albums/Albums';
 import Photos from './pages/Photos/Photos';
 import BgPhoto from './assets/userimages/bee-7707052.jpg';
 import Footer from './pages/Footer/Footer';
+import { ThemeProvider } from './context/ThemeContext';
 
 interface UserInterface {
   id: string,
@@ -33,7 +34,8 @@ const App = () => {
   console.log(user)
   return (
     <div className="App">
-      <section className='px-6 py-4 bg-surface'>
+      <ThemeProvider>
+      <section className='px-6 py-4 bg-surface dark:bg-on_background'>
         <NavigationBar />
       </section>
 
@@ -54,8 +56,10 @@ const App = () => {
         <Route path='/photos' element={<Photos/>}></Route>
         <Route path='/albums' element={<Albums/>}></Route>
       </Routes>
-      <section><Footer/></section>
-    </div>
+      <section className='dark:bg-on_background'><Footer/></section>
+
+      </ThemeProvider>
+      </div>
   );
 }
 

@@ -27,3 +27,8 @@ code {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+#logo-dark {
+  border: black solid;
+  border-radius: 14px;
+}
