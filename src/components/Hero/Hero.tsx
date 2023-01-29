@@ -8,13 +8,8 @@ import LogoWhite from '../../assets/img/logo-white.png';
 import { BsFillSunFill, BsMoonFill, BsCheck } from 'react-icons/bs'
 
 const Hero = () => {
-
-    // theme context
-    //const theme = useContext(ThemeContext);
-    // theme state
-    // const [theme, setTheme] = useState('light');
+    
     const {theme, handleThemeSwitch} = useContext(ThemeContext);
-    console.log(theme)
     return (
     <>
     <ThemeContext.Provider value={theme}>

@@ -10,36 +10,29 @@ import Photos from './pages/Photos/Photos';
 import BgPhoto from './assets/userimages/bee-7707052.jpg';
 import Footer from './pages/Footer/Footer';
 import { ThemeProvider } from './context/ThemeContext';
+import Register from './pages/Register/Register';
+import { UserProvider } from './context/UserContext';
+import UserProfile from './pages/UserProfile/UserProfile';
 
 interface UserInterface {
   id: string,
   email: string
 }
-export const UserContext = createContext<UserInterface | null>(null);
 
 const App = () => {
 
-  const [user, setUser] = useState<UserInterface | null>(null);
-
-  useEffect(() => {
-    (async() => {
-      try {
-        const response = await httpClient.get("//localhost:5000/@me");
-        setUser(response.data);
-      } catch (error) {
-        console.log("Not Authenticated");
-      }
-    })();
-  }, []);
-  console.log(user)
+  const [user, setUser] = useState(null);
+  
   return (
     <div className="App">
       <ThemeProvider>
+        <UserProvider>
       <section className='px-6 py-4 bg-surface dark:bg-on_background'>
         <NavigationBar />
       </section>
 
       <Routes>
+        { }
         <Route path='/' element={
           <section className='flex justify-around from-secondary-container p-20 h-55 bg-image'>
             <div>
@@ -55,9 +48,11 @@ const App = () => {
         </Route>
         <Route path='/photos' element={<Photos/>}></Route>
         <Route path='/albums' element={<Albums/>}></Route>
+        <Route path='/register' element={<Register/>}></Route>
+        <Route path='/profile' element={<UserProfile/>}></Route>
       </Routes>
       <section className='dark:bg-on_background'><Footer/></section>
-
+      </UserProvider>
       </ThemeProvider>
       </div>
   );

@@ -2,21 +2,28 @@ import { useContext } from 'react';
 import LogoWhite from '../../assets/img/logo-white.png';
 import LogoDark from '../../assets/img/logo-dark.png';
 import { useLocation, Link } from 'react-router-dom';
-import { UserContext } from '../../App';
+import UserContext from '../../context/UserContext';
 import httpClient from '../../config/httpClient';
 import Hero from '../Hero/Hero';
 import ThemeContext from '../../context/ThemeContext';
 import LoginModal from '../LoginModal/LoginModal';
+import { useNavigate } from "react-router-dom";
+
 
 const NavigationBar = () => {
 
     const location = useLocation();
     const user = useContext(UserContext);
     const {theme, handleThemeSwitch} = useContext(ThemeContext);
+    const navigate = useNavigate();
 
     const logoutUser = async () => {
         await httpClient.post("//localhost:5000/logout");
         window.location.href = "/";
+    }
+
+    const registerUser = () => {
+        navigate("/register");
     }
 
     return (
@@ -36,7 +43,7 @@ const NavigationBar = () => {
                     {/* <div className='hover:bg-primary_container hover:rounded-md py-2 px-3 dark:text-on_primary'>Login</div> */}
                     <LoginModal />
                     <span className='pl-10'></span>
-                    <div className=' bg-primary rounded-md py-2 px-3 hover:text-on_primary text-on_primary hover:text-primary_container'><button type='button'>Register</button></div>
+                    <div className=' bg-primary rounded-md py-2 px-3 hover:text-on_primary text-on_primary hover:text-primary_container'><button type='button' onClick={registerUser}>Register</button></div>
                     
                     <div className='pl-10'><Hero /></div>
                 </div>
