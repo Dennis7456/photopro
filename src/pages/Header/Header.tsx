@@ -24,10 +24,6 @@ const Header =  () => {
         window.location.href = "/";
     }
 
-    const registerUser = () => {
-        navigate("/register");
-    }
-
     return (
         <>
         <nav>
@@ -36,11 +32,8 @@ const Header =  () => {
                 <div className='flex justify-around'>
                 </div>
                 <div className='flex justify-between items-center'>
-                    {/* <LoginModal /> */}
                     <span className='pl-10'></span>
-                    {/* <div className=' bg-primary rounded-md py-2 px-3 hover:text-on_primary text-on_primary hover:text-primary_container'><button type='button' onClick={registerUser}>Register</button></div> */}
                     <div className=' bg-primary rounded-md py-2 px-3 hover:text-on_primary text-on_primary hover:text-primary_container'><button type='button' onClick={logoutUser}>Logout</button></div>
-                    
                     <div className='pl-10'><Hero /></div>
                 </div>
             </div>

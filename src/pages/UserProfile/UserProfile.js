@@ -22,10 +22,7 @@ const UserProfile = () => {
     const configuration = {
       method: "get",
       url: "https://photopro-backend-dennis7456.vercel.app/profile",
-      data: { email: 'admin@test.net' },
-      headers: { 
-        Authorization : "Bearer " + token,
-         },
+      headers: { Authorization: `Bearer ${token}` },
   };
 
   axios(configuration)
@@ -39,7 +36,7 @@ const UserProfile = () => {
 
       return (
         <>
-        <h1 className="dark:text-on_primary">User Profile</h1>
+        <h1>User Profile</h1>
         <p>{ user }</p>
         <button></button>
         </>
