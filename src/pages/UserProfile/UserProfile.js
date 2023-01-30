@@ -8,16 +8,15 @@ const cookies = new Cookies();
 const token = cookies.get('TOKEN');
 
 const UserProfile = () => {
-    
-    // const {token, setToken} = useContext(localStorage.getItem('token'));
-    const [token, setToken] = useState(localStorage.getItem('token'));
-    const [email, setEmail] = useState(localStorage.getItem('email'));
+
     const [user, setUser] = useState(null);
     const [message, setMessage] = useState('');
 
-    if (!token) {
-      window.location.href = "/";
-  }
+    useEffect(() => {
+      if (!token) {
+          window.location.href = "/";
+      }
+  })
 
     const configuration = {
       method: "get",
@@ -27,7 +26,6 @@ const UserProfile = () => {
 
   axios(configuration)
       .then((res) => {
-
         console.log(res);
       })
       .catch((error) => {
