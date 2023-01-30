@@ -2,54 +2,46 @@ import { useContext, useEffect, useState } from "react";
 import UserContext from "../../context/UserContext";
 import httpClient from "../../config/httpClient";
 import axios from "axios";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
+
+const token = cookies.get('TOKEN');
 
 const UserProfile = () => {
     
-    const {token, userEmail} = useContext(UserContext);
+    // const {token, setToken} = useContext(localStorage.getItem('token'));
+    const [token, setToken] = useState(localStorage.getItem('token'));
+    const [email, setEmail] = useState(localStorage.getItem('email'));
     const [user, setUser] = useState(null);
+    const [message, setMessage] = useState('');
 
-    // const temptoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2Q2OTIzMTQ3ZDliODdjMDc3MDZiZWQiLCJ1c2VyRW1haWwiOiJpbWFnZXN1Y2Nlc3NAZ21haWwuY29tIiwiaWF0IjoxNjc1MDE5ODAzLCJleHAiOjE2NzUxMDYyMDN9._gTOF7OYHyqlrbJcHGCvPkampe_j9f0uqENAZdGO-l8'
-    
-    const config = {
-      headers: { "Authorization" : `Bearer ${token}`}
-    };
+    if (!token) {
+      window.location.href = "/";
+  }
 
-    // useEffect(() => {
-    //     (async() => {
-    //       try {
-    //         const response = await httpClient.get("//localhost:5050/profile", userEmail);
-    //         setUser(response.data);
-    //       } catch (error) {
-    //         console.log("Not Authenticated", error);
-    //       }
-    //     })();
-    //   }, []);
+    const configuration = {
+      method: "get",
+      url: "http://localhost:5050/profile",
+      data: { email: 'admin@test.net' },
+      headers: { 
+        Authorization : "Bearer " + token,
+         },
+  };
 
-    // useEffect(() => {
-    //   httpClient.get("http://localhost:5050/profile", { params: { email: "imagesuccess@gmail.com" }})
-    //   .then(res => {
-    //     console.log(res.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   })
+  axios(configuration)
+      .then((res) => {
 
-    //   axios({
-    //     method: 
-    //   })
-
-      
-    // })
-
-    const getUser = () => {
-        
-    }
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
       return (
         <>
-        <h1>User Profile</h1>
+        <h1 className="dark:text-on_primary">User Profile</h1>
         <p>{ user }</p>
-        <button onClick={getUser}></button>
+        <button></button>
         </>
       )
 }

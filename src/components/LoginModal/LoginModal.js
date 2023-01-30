@@ -4,6 +4,10 @@ import './LoginModal.css'
 import Icon from '@mdi/react';
 import { mdiCloseCircle, mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js';
 import UserContext  from "../../context/UserContext";
+import axios from "axios";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 const LoginModal = () => {
   
@@ -12,8 +16,7 @@ const LoginModal = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    const { token, setToken, userEmail, setUserEmail } = useContext(UserContext);
+    const {user, handleUser} = useContext(UserContext);
 
     
 
@@ -27,30 +30,32 @@ const LoginModal = () => {
         }
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
+
       e.preventDefault();
-      try {
-          const res = await httpClient.post("//localhost:5050/login", {
-              email,
-              password
-          });
+      // set configurations
+    const configuration = {
+      method: "post",
+      url: "http://localhost:5050/login",
+      data: {
+        email,
+        password,
+      },
+    };
 
-          if (localStorage.getItem('token') === null || localStorage.getItem('token') !== res.data.token) {
-            setToken(res.data.token);
-            setUserEmail(res.data.email);
-            localStorage.setItem('token', res.data.token);
-          }
-          window.location.href = "/profile";
-
-      } catch (error) {
-          if (error.response.status === 401) {
-              console.log(error);
-              alert("Invalid credentials");
-          }
-      }
-
-      console.log(token);
-      console.log(userEmail);
+    // make the API call
+    axios(configuration)
+    .then((result) => {
+      cookies.set("TOKEN", result.data.token, {
+        path: "/",  
+      });
+      handleUser(result.data.email);
+      window.location.href = "/dashboard";
+      console.log(result.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
     return (

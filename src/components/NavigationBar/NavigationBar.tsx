@@ -9,6 +9,11 @@ import ThemeContext from '../../context/ThemeContext';
 import LoginModal from '../LoginModal/LoginModal';
 import { useNavigate } from "react-router-dom";
 
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
+
+const token = cookies.get('TOKEN')
+
 
 const NavigationBar = () => {
 
@@ -40,7 +45,6 @@ const NavigationBar = () => {
                     </div>
                 </div>
                 <div className='flex justify-between items-center'>
-                    {/* <div className='hover:bg-primary_container hover:rounded-md py-2 px-3 dark:text-on_primary'>Login</div> */}
                     <LoginModal />
                     <span className='pl-10'></span>
                     <div className=' bg-primary rounded-md py-2 px-3 hover:text-on_primary text-on_primary hover:text-primary_container'><button type='button' onClick={registerUser}>Register</button></div>

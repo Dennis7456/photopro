@@ -13,6 +13,12 @@ import { ThemeProvider } from './context/ThemeContext';
 import Register from './pages/Register/Register';
 import { UserProvider } from './context/UserContext';
 import UserProfile from './pages/UserProfile/UserProfile';
+import Dashboard from './components/dashboard/Dashboard';
+import Cookies from "universal-cookie";
+import Header from './pages/Header/Header';
+const cookies = new Cookies();
+
+const token = cookies.get('TOKEN')
 
 interface UserInterface {
   id: string,
@@ -28,7 +34,7 @@ const App = () => {
       <ThemeProvider>
         <UserProvider>
       <section className='px-6 py-4 bg-surface dark:bg-on_background'>
-        <NavigationBar />
+        { token ? <Header /> : <NavigationBar /> }
       </section>
 
       <Routes>
@@ -50,6 +56,7 @@ const App = () => {
         <Route path='/albums' element={<Albums/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
         <Route path='/profile' element={<UserProfile/>}></Route>
+        <Route path='/dashboard' element={<Dashboard/>}></Route>
       </Routes>
       <section className='dark:bg-on_background'><Footer/></section>
       </UserProvider>
