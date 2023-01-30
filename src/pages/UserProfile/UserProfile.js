@@ -21,7 +21,7 @@ const UserProfile = () => {
 
     const configuration = {
       method: "get",
-      url: "http://localhost:5050/profile",
+      url: "https://photopro-backend-dennis7456.vercel.app/profile",
       data: { email: 'admin@test.net' },
       headers: { 
         Authorization : "Bearer " + token,
