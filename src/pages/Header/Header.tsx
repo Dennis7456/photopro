@@ -30,6 +30,17 @@ const Header =  () => {
             <div className='flex justify-around items-center text-xl'>
                 <div className=''><a href="/" className=''>{theme === 'light' ? <img src={LogoWhite} className="logo"/> : <img src={LogoDark} className="logo bg-white" id='logo-dark'/>}</a></div>
                 <div className='flex justify-around'>
+                    <div className=''>
+                    { location.pathname === '/dashboard' ? <Link to='/dashboard' className='bg-primary rounded-md py-2 px-3 text-md text-on_primary hover:text-on-primary hover:text-primary_container'>Dashboard</Link> : <Link to='dashboard' className='text-md text-black hover:text-primary dark:text-on_primary'>Dashboard</Link>}
+                    </div>
+                    <div className='pl-10'>
+                    { location.pathname === '/profile' ? <Link to='/profile' className='bg-primary rounded-md py-2 px-3 text-md text-on_primary hover:text-on-primary hover:text-primary_container'>Profile</Link> : <Link to='profile' className='text-md text-black hover:text-primary dark:text-on_primary'>Profile</Link>}
+                    </div>
+                    <div className='pl-10'>
+                    { location.pathname === '/myalbums' ? <Link to='/myalbums' className='bg-primary rounded-md py-2 px-3 text-md text-on_primary hover:text-on-primary hover:text-primary_container'>My Albums</Link> : <Link to='myalbums' className='text-md text-black hover:text-primary dark:text-on_primary'>My Albums</Link>}
+                    </div>
+                    </div>
+                <div className='flex justify-around'>
                 </div>
                 <div className='flex justify-between items-center'>
                     <span className='pl-10'></span>
