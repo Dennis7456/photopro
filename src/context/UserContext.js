@@ -18,15 +18,15 @@ export const UserProvider = ({ children }) => {
             headers: { Authorization : "Bearer " + token },
         }
 
-        useEffect(() => {
-            axios(configuration)
-        .then((result) => {
-            console.log(result.data);
-        })
-        .catch((error) => {
-            console.error(error);
-        })
-        })
+        // useEffect(() => {
+        //     axios(configuration)
+        // .then((result) => {
+        //     console.log(result.data);
+        // })
+        // .catch((error) => {
+        //     console.error(error);
+        // })
+        // })
 
         const handleUser = (email) => {
             setUser(email);

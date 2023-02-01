@@ -17,6 +17,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Cookies from "universal-cookie";
 import Header from './pages/Header/Header';
 import MyAlbums from './pages/MyAlbums/MyAlbums';
+import Users from './pages/Users/Users';
 const cookies = new Cookies();
 
 const token = cookies.get('TOKEN')
@@ -59,6 +60,7 @@ const App = () => {
         <Route path='/profile' element={<UserProfile/>}></Route>
         <Route path='/dashboard' element={<Dashboard/>}></Route>
         <Route path='/myalbums' element={<MyAlbums/>}></Route>
+        <Route path='/users' element={<Users/>}></Route>
       </Routes>
       <section className='dark:bg-on_background'><Footer/></section>
       </UserProvider>

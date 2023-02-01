@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Cookies from "universal-cookie";
+import Photos from "../../pages/Photos/Photos";
 const cookies = new Cookies();
 
 const token = cookies.get('TOKEN');
@@ -34,6 +35,7 @@ const Dashboard = () => {
                 <a className="bg-on_primary_container rounded-md px-3 py-2 hover:bg-primary" href="#">Lonely</a>
                 </div>
         </div>
+        <div><Photos/></div>
         </>
     )
 }

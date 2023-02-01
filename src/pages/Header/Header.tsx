@@ -34,6 +34,9 @@ const Header =  () => {
                     { location.pathname === '/dashboard' ? <Link to='/dashboard' className='bg-primary rounded-md py-2 px-3 text-md text-on_primary hover:text-on-primary hover:text-primary_container'>Dashboard</Link> : <Link to='dashboard' className='text-md text-black hover:text-primary dark:text-on_primary'>Dashboard</Link>}
                     </div>
                     <div className='pl-10'>
+                    { location.pathname === '/users' ? <Link to='/users' className='bg-primary rounded-md py-2 px-3 text-md text-on_primary hover:text-on-primary hover:text-primary_container'>Users</Link> : <Link to='users' className='text-md text-black hover:text-primary dark:text-on_primary'>Users</Link>}
+                    </div>
+                    <div className='pl-10'>
                     { location.pathname === '/profile' ? <Link to='/profile' className='bg-primary rounded-md py-2 px-3 text-md text-on_primary hover:text-on-primary hover:text-primary_container'>Profile</Link> : <Link to='profile' className='text-md text-black hover:text-primary dark:text-on_primary'>Profile</Link>}
                     </div>
                     <div className='pl-10'>

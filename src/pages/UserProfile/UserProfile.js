@@ -13,7 +13,6 @@ const token = cookies.get('TOKEN');
 
 const UserProfile = () => {
     
-    // const [email, setEmail] = useState(localStorage.getItem('email'));
     const [user, setUser] = useState('');
     const [message, setMessage] = useState('');
 

@@ -50,7 +50,7 @@ const LoginModal = () => {
         path: "/",  
       });
       handleUser(result.data.email);
-      //window.location.href = "/dashboard";
+      window.location.href = "/dashboard";
       console.log(result.data);
     })
     .catch((error) => {
