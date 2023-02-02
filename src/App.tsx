@@ -6,7 +6,7 @@ import { createContext, useEffect, useState } from 'react';
 import httpClient from './config/httpClient';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import Albums from './pages/Albums/Albums';
-import Photos from './pages/Photos/Photos';
+// import Photos from './pages/Photos/Photos';
 import BgPhoto from './assets/userimages/bee-7707052.jpg';
 import Footer from './pages/Footer/Footer';
 import { ThemeProvider } from './context/ThemeContext';
@@ -54,13 +54,13 @@ const App = () => {
           </section>
         }>
         </Route>
-        <Route path='/photos' element={<Photos/>}></Route>
         <Route path='/albums' element={<Albums/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
         <Route path='/profile' element={<UserProfile/>}></Route>
         <Route path='/dashboard' element={<Dashboard/>}></Route>
         <Route path='/myalbums' element={<MyAlbums/>}></Route>
         <Route path='/users' element={<Users/>}></Route>
+        {/* <Route path='/photos' element={<Photos/>}></Route> */}
       </Routes>
       <section className='dark:bg-on_background'><Footer/></section>
       </UserProvider>
