@@ -6,7 +6,6 @@ import { createContext, useEffect, useState } from 'react';
 import httpClient from './config/httpClient';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import Albums from './pages/Albums/Albums';
-// import Photos from './pages/Photos/Photos';
 import BgPhoto from './assets/userimages/bee-7707052.jpg';
 import Footer from './pages/Footer/Footer';
 import { ThemeProvider } from './context/ThemeContext';
