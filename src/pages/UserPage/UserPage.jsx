@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import BASE_URL from "../../config/httpClient";
 
 const cookies = new Cookies();
 
@@ -43,7 +44,7 @@ const UserPage = () => {
 
         const configuration = {
             method: "post",
-            url: "https://photopro-backend-dennis7456.vercel.app/user_albums",
+            url: BASE_URL + "user_albums",
             headers: { Authorization : "Bearer " + token },
             data: {
                 userId

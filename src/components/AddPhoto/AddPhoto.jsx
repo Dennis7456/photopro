@@ -5,6 +5,7 @@ import { mdiPlusCircleOutline, mdiCloseCircle } from '@mdi/js';
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import BASE_URL from "../../config/httpClient";
 
 const cookies = new Cookies();
 const token = cookies.get("TOKEN");
@@ -48,7 +49,7 @@ const AddPhoto = ({albumId}) => {
         
         const configuration = {
             method: "post",
-            url: "https://photopro-backend-dennis7456.vercel.app/create_photo",
+            url: BASE_URL + "create_photo",
             headers: { "Authorization" : "Bearer " + token },
             data: {
                 name,

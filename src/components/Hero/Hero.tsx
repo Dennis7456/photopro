@@ -1,9 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import ThemeContext from "../../context/ThemeContext";
 
-// import logo
-import LogoWhite from '../../assets/img/logo-white.png';
-
 // import icons
 import { BsFillSunFill, BsMoonFill, BsCheck } from 'react-icons/bs'
 

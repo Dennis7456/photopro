@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { useEffect, useState } from "react";
+import BASE_URL from "../../config/httpClient";
 
 const cookie = new Cookies();
 const token = cookie.get("TOKEN");
@@ -39,7 +40,11 @@ const EditPhoto = () => {
 
         const configuration = {
             method: "patch",
+<<<<<<< HEAD
+            url: BASE_URL + "edit_photo",
+=======
             url: "https://photopro-backend-dennis7456.vercel.app/edit_photo",
+>>>>>>> main
             headers: { Authorization : "Bearer " + token },
             data: {
               photoId,

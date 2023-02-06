@@ -4,6 +4,7 @@ import axios from 'axios';
 import "./Users.css";
 import Icon from '@mdi/react'
 import { mdiImageMultiple } from '@mdi/js';
+import BASE_URL from "../../config/httpClient";
 
 const cookies = new Cookies();
 const token = cookies.get('TOKEN');
@@ -14,13 +15,14 @@ const Users = () => {
 
     const configuration = {
         method: "get",
-        url: "https://photopro-backend-dennis7456.vercel.app/users",
+        url: BASE_URL + "users",
         headers: { Authorization : "Bearer " + token },
     }
 
     useEffect(() => {
         axios(configuration)
         .then((res) => {
+            console.log(res.data)
             setUsers(...users, res.data);
         })
         .catch((error) => {
@@ -32,7 +34,7 @@ const Users = () => {
         window.location.href = "/user/" + id;
     }
 
-    console.log(users);
+    //console.log(users);
 
     const users_disp = users.map((user, id) => {
         return <div className="p-10 inline-block" key={id} onClick={() => handleUserId(user._id)}>

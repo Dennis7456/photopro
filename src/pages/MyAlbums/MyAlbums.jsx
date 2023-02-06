@@ -4,6 +4,7 @@ import Cookies from "universal-cookie";
 import AlbumImg from "../../assets/profilepictures/PicsArt_12-18-03.57.09.jpg"
 import "./MyAlbums.css";
 import AddAlbum from "../../components/AddAlbum/AddAlbum";
+import BASE_URL from "../../config/httpClient";
 const cookies = new Cookies();
 
 const token = cookies.get('TOKEN');
@@ -15,7 +16,7 @@ const MyAlbums = () => {
     useEffect(() => {
         const configuration = {
             method: "get",
-            url: "https://photopro-backend-dennis7456.vercel.app/my_albums",
+            url: BASE_URL + "my_albums",
             headers: { Authorization : "Bearer " + token },
         }
         

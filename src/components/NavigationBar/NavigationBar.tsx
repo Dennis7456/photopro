@@ -6,7 +6,7 @@ import UserContext from '../../context/UserContext';
 import httpClient from '../../config/httpClient';
 import Hero from '../Hero/Hero';
 import ThemeContext from '../../context/ThemeContext';
-import LoginModal from '../LoginModal/LoginModal';
+import LoginModal from '../LoginModal/LoginModal.jsx';
 import { useNavigate } from "react-router-dom";
 
 import Cookies from "universal-cookie";

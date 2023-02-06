@@ -3,6 +3,7 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import { useParams } from "react-router-dom";
 import AddPhoto from "../../components/AddPhoto/AddPhoto";
+import BASE_URL from "../../config/httpClient";
 
 
 const cookies = new Cookies();
@@ -15,13 +16,18 @@ const AllPhotos = () => {
     
 
     useEffect(() => {
-        console.log(albumId)
+        //console.log(albumId)
+        
         const configuration = {
             method: "get",
+<<<<<<< HEAD
+            url: BASE_URL + "photos",
+=======
             url: "https://photopro-backend-dennis7456.vercel.app/photos",
+>>>>>>> main
             headers: { Authorization : "Bearer " + token },
         }
-        
+        console.log(configuration);
         axios(configuration)
         .then((res) => {
             console.log(res.data)

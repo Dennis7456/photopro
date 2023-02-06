@@ -6,6 +6,7 @@ import { mdiCloseCircle, mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js';
 import UserContext  from "../../context/UserContext";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import BASE_URL from "../../config/httpClient";
 
 const cookies = new Cookies();
 
@@ -36,7 +37,7 @@ const LoginModal = () => {
       // set configurations
     const configuration = {
       method: "post",
-      url: "https://photopro-backend-dennis7456.vercel.app/login",
+      url: BASE_URL + "login",
       data: {
         email,
         password,
