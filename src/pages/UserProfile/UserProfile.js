@@ -27,8 +27,8 @@ const UserProfile = () => {
   useEffect(() => {
     const configuration = {
       method: "get",
-      url: "http://localhost:5050/profile",
-      headers: { Authorization : "Bearer " + token },
+      url: "https://photopro-backend-dennis7456.vercel.app/profile",
+      headers: { Authorization: `Bearer ${token}` },
   };
 
     axios(configuration)
@@ -76,6 +76,8 @@ const UserProfile = () => {
           <div><p className="dark:text-on_primary text-start px-20 pb-4">{ user.bio }</p></div>
         </div>
         </div>
+        <h1>User Profile</h1>
+        <p>{ user }</p>
         </>
       )
 }

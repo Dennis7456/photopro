@@ -22,11 +22,6 @@ const NavigationBar = () => {
     const {theme, handleThemeSwitch} = useContext(ThemeContext);
     const navigate = useNavigate();
 
-    const logoutUser = async () => {
-        await httpClient.post("//localhost:5000/logout");
-        window.location.href = "/";
-    }
-
     const registerUser = () => {
         navigate("/register");
     }
