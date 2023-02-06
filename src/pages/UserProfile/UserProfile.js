@@ -33,18 +33,18 @@ const UserProfile = () => {
 
     axios(configuration)
       .then((res) => {
+        //console.log(typeof(res.data.first_name))
         setUser(res.data);
         setAlbums(res.data.albums.length);
         setPhotos(res.data.photos.length);
         setProfilePhoto(res.data.profile_image);
-        //console.log(res.data.photos.length);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
-  console.log(user);
+  //console.log(user);
 
       return (
         <>

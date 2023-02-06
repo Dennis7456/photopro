@@ -21,6 +21,7 @@ const Users = () => {
     useEffect(() => {
         axios(configuration)
         .then((res) => {
+            console.log(res.data)
             setUsers(...users, res.data);
         })
         .catch((error) => {
@@ -32,7 +33,7 @@ const Users = () => {
         window.location.href = "/user/" + id;
     }
 
-    console.log(users);
+    //console.log(users);
 
     const users_disp = users.map((user, id) => {
         return <div className="p-10 inline-block" key={id} onClick={() => handleUserId(user._id)}>
