@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
         <>
-        <div className="flex justify-center items-center pt-5 text-lg font-light dark:text-on_primary">
+        <div className="flex justify-center items-center pt-5 pb-4 text-lg font-light dark:text-on_primary">
             <div><a href="/#">About</a></div>
             <div className="pl-5 text-primary">PhotoPro</div>
             <div className="text-primary">&#169;</div>
