@@ -17,6 +17,8 @@ import Cookies from "universal-cookie";
 import Header from './pages/Header/Header';
 import MyAlbums from './pages/MyAlbums/MyAlbums';
 import Users from './pages/Users/Users';
+import Photos from './pages/Photos/Photos';
+import UserPage from './pages/UserPage/UserPage';
 const cookies = new Cookies();
 
 const token = cookies.get('TOKEN')
@@ -59,7 +61,8 @@ const App = () => {
         <Route path='/dashboard' element={<Dashboard/>}></Route>
         <Route path='/myalbums' element={<MyAlbums/>}></Route>
         <Route path='/users' element={<Users/>}></Route>
-        {/* <Route path='/photos' element={<Photos/>}></Route> */}
+        <Route path='/photos/:albumId' element={<Photos/>}></Route>
+        <Route path='/user/:userId' element={<UserPage/>}></Route>
       </Routes>
       <section className='dark:bg-on_background'><Footer/></section>
       </UserProvider>
