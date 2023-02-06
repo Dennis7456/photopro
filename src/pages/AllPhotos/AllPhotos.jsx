@@ -18,7 +18,7 @@ const AllPhotos = () => {
         console.log(albumId)
         const configuration = {
             method: "get",
-            url: "http://localhost:5050/photos",
+            url: "https://photopro-backend-dennis7456.vercel.app/photos",
             headers: { Authorization : "Bearer " + token },
         }
         

@@ -19,7 +19,7 @@ const OtherPhotos = () => {
         console.log(albumId)
         const configuration = {
             method: "post",
-            url: "http://localhost:5050/albums/photos",
+            url: "https://photopro-backend-dennis7456.vercel.app/albums/photos",
             headers: { Authorization : "Bearer " + token },
             data: {
                 albumId

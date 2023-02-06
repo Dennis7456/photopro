@@ -48,7 +48,7 @@ const AddPhoto = ({albumId}) => {
         
         const configuration = {
             method: "post",
-            url: "http://localhost:5050/create_photo",
+            url: "https://photopro-backend-dennis7456.vercel.app/create_photo",
             headers: { "Authorization" : "Bearer " + token },
             data: {
                 name,

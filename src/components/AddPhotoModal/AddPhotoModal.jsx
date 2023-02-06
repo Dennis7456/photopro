@@ -46,7 +46,7 @@ const AddPhotoModal = () => {
         
         const configuration = {
             method: "post",
-            url: "http://localhost:5050/edit_profile",
+            url: "https://photopro-backend-dennis7456.vercel.app/edit_profile",
             headers: { "Authorization" : "Bearer " + token },
             data: {
                 firstName,

@@ -43,7 +43,7 @@ const UserPage = () => {
 
         const configuration = {
             method: "post",
-            url: "http://localhost:5050/user_albums",
+            url: "https://photopro-backend-dennis7456.vercel.app/user_albums",
             headers: { Authorization : "Bearer " + token },
             data: {
                 userId

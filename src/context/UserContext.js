@@ -14,7 +14,7 @@ export const UserProvider = ({ children }) => {
 
         const configuration = {
             method: "get",
-            url: "http://localhost:5050/user",
+            url: "https://photopro-backend-dennis7456.vercel.app/user",
             headers: { Authorization : "Bearer " + token },
         }
 

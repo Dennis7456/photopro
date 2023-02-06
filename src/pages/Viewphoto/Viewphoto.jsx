@@ -17,7 +17,7 @@ const ViewPhoto = () => {
     useEffect(() => {
         const configuration = {
           method: "post",
-          url: "http://localhost:5050/photo",
+          url: "https://photopro-backend-dennis7456.vercel.app/photo",
           headers: { Authorization : "Bearer " + token },
           data: {
             photoId

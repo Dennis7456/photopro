@@ -39,7 +39,7 @@ const AddAlbum = () => {
         
         const configuration = {
             method: "post",
-            url: "http://localhost:5050/create_album",
+            url: "https://photopro-backend-dennis7456.vercel.app/create_album",
             headers: { "Authorization" : "Bearer " + token },
             data: {
                 name,

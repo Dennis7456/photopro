@@ -14,7 +14,7 @@ const Users = () => {
 
     const configuration = {
         method: "get",
-        url: "http://localhost:5050/users",
+        url: "https://photopro-backend-dennis7456.vercel.app/users",
         headers: { Authorization : "Bearer " + token },
     }
 

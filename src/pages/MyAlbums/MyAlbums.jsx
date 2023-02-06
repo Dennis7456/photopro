@@ -15,7 +15,7 @@ const MyAlbums = () => {
     useEffect(() => {
         const configuration = {
             method: "get",
-            url: "http://localhost:5050/my_albums",
+            url: "https://photopro-backend-dennis7456.vercel.app/my_albums",
             headers: { Authorization : "Bearer " + token },
         }
         
