@@ -1,5 +1,3 @@
-import axios from "axios";
+const BASE_URL="https://photopro-backend.vercel.app/";
 
-export default axios.create({
-    withCredentials: true,
-})
+export default BASE_URL;

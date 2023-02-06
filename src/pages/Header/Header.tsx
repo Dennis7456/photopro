@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import httpClient from "../../config/httpClient";
-import LoginModal from "../../components/LoginModal/LoginModal";
+import LoginModal from "../../components/LoginModal/LoginModal.jsx";
 import Hero from "../../components/Hero/Hero";
 import ThemeContext from "../../context/ThemeContext";
 import LogoWhite from '../../assets/img/logo-white.png';

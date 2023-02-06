@@ -4,6 +4,7 @@ import Icon from '@mdi/react';
 import { mdiCloseCircle, mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js';
 import axios from "axios";
 import Cookies from "universal-cookie";
+import BASE_URL from "../../config/httpClient";
 
 
 const cookies = new Cookies();
@@ -46,7 +47,7 @@ const AddPhotoModal = () => {
         
         const configuration = {
             method: "post",
-            url: "http://localhost:5050/edit_profile",
+            url: BASE_URL + "edit_profile",
             headers: { "Authorization" : "Bearer " + token },
             data: {
                 firstName,

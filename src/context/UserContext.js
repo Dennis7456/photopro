@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import httpClient from "../config/httpClient";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import BASE_URL from "../config/httpClient";
 const cookies = new Cookies();
 
 const token = cookies.get('TOKEN');
@@ -14,7 +15,7 @@ export const UserProvider = ({ children }) => {
 
         const configuration = {
             method: "get",
-            url: "http://localhost:5050/user",
+            url: BASE_URL + "user",
             headers: { Authorization : "Bearer " + token },
         }
 

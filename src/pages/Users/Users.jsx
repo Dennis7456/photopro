@@ -4,6 +4,7 @@ import axios from 'axios';
 import "./Users.css";
 import Icon from '@mdi/react'
 import { mdiImageMultiple } from '@mdi/js';
+import BASE_URL from "../../config/httpClient";
 
 const cookies = new Cookies();
 const token = cookies.get('TOKEN');
@@ -14,7 +15,7 @@ const Users = () => {
 
     const configuration = {
         method: "get",
-        url: "http://localhost:5050/users",
+        url: BASE_URL + "users",
         headers: { Authorization : "Bearer " + token },
     }
 

@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { useEffect, useState } from "react";
+import BASE_URL from "../../config/httpClient";
 
 const cookie = new Cookies();
 const token = cookie.get("TOKEN");
@@ -39,7 +40,7 @@ const EditPhoto = () => {
 
         const configuration = {
             method: "patch",
-            url: "http://localhost:5050/edit_photo",
+            url: BASE_URL + "edit_photo",
             headers: { Authorization : "Bearer " + token },
             data: {
               photoId,

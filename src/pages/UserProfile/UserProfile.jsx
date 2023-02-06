@@ -7,6 +7,7 @@ import ProfilePic from "../../assets/profilepictures/IMG_4966.jpeg"
 import ProfilePic2 from "../../assets/profilepictures/PicsArt_12-18-03.57.09.jpg"
 import "./UserProfile.css";
 import AddPhotoModal from "../../components/AddPhotoModal/AddPhotoModal";
+import BASE_URL from "../../config/httpClient";
 
 const cookies = new Cookies();
 
@@ -27,7 +28,7 @@ const UserProfile = () => {
   useEffect(() => {
     const configuration = {
       method: "get",
-      url: "https://photopro-backend-dennis7456.vercel.app/profile",
+      url: BASE_URL + "profile",
       headers: { Authorization: `Bearer ${token}` },
   };
 

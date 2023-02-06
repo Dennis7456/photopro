@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import BASE_URL from "../../config/httpClient";
 
 const Register = () => {
     
@@ -17,7 +18,7 @@ const Register = () => {
         // set configurations
         const configuration = {
         method: "post",
-        url: "https://photopro-backend-dennis7456.vercel.app/register",
+        url: BASE_URL + "register",
         data: {
             firstName,
             lastName,

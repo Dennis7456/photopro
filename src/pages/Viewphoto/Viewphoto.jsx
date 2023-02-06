@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { useEffect, useState } from "react";
+import BASE_URL from "../../config/httpClient";
 
 const cookie = new Cookies();
 const token = cookie.get("TOKEN");
@@ -17,7 +18,7 @@ const ViewPhoto = () => {
     useEffect(() => {
         const configuration = {
           method: "post",
-          url: "http://localhost:5050/photo",
+          url: BASE_URL + "photo",
           headers: { Authorization : "Bearer " + token },
           data: {
             photoId

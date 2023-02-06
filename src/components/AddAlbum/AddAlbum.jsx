@@ -5,6 +5,7 @@ import { mdiPlusCircleOutline, mdiCloseCircle } from '@mdi/js';
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import BASE_URL from "../../config/httpClient";
 
 const cookies = new Cookies();
 const token = cookies.get("TOKEN");
@@ -39,7 +40,7 @@ const AddAlbum = () => {
         
         const configuration = {
             method: "post",
-            url: "http://localhost:5050/create_album",
+            url: BASE_URL + "create_album",
             headers: { "Authorization" : "Bearer " + token },
             data: {
                 name,

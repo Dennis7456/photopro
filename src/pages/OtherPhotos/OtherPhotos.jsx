@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import BASE_URL from "../../config/httpClient";
 const cookies = new Cookies();
 
 const token = cookies.get('TOKEN');
@@ -19,7 +20,7 @@ const OtherPhotos = () => {
         console.log(albumId)
         const configuration = {
             method: "post",
-            url: "http://localhost:5050/albums/photos",
+            url: BASE_URL + "albums/photos",
             headers: { Authorization : "Bearer " + token },
             data: {
                 albumId
