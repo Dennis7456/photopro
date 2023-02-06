@@ -106,7 +106,7 @@ const LoginModal = () => {
                 </div>
                 <div className='font-light text-on_background text-xs pt-0 mx-1 pb-5 dark:text-on_primary'>This site is protected by reCAPTCHA and the google <a className='text-primary hover:text-on_primary-container hover:font-semibold dark:text-on_primary' href='#'>Privacy Policy</a> and <a href='#' className='text-primary hover:text-on_primary-container hover:font-semibold dark:text-on_primary'>Terms of Service apply</a></div>
                 <div className="flex justify-around items-center text-on-surface-variant">
-                    <div className="px-3 py-2 hover:text-primary dark:text-on_primary hover:font-semibold hover:text-secondary"><a href="/registration">Register</a></div>
+                    <div className="px-3 py-2 hover:text-primary dark:text-on_primary hover:font-semibold hover:text-secondary"><a href="/register">Register</a></div>
                     <div className="px-3 py-5 hover:text-primary dark:text-on_primary hover:font-semibold hover:text-secondary"><a>Forgot Password</a></div>
                 </div>
               </div>

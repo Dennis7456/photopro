@@ -14,16 +14,17 @@ const cookies = new Cookies();
 const token = cookies.get('TOKEN');
 
 const UserProfile = () => {
-    
     const [user, setUser] = useState('');
     const [message, setMessage] = useState('');
     const [albums, setAlbums] = useState(0);
     const [photos, setPhotos] = useState(0);
     const [profilePhoto, setProfilePhoto] = useState("");
 
-    if (!token) {
-      window.location.href = "/";
-  }
+    useEffect(() => {
+      if (!token) {
+          window.location.href = "/";
+      }
+  })
 
   useEffect(() => {
     const configuration = {
@@ -35,6 +36,7 @@ const UserProfile = () => {
     axios(configuration)
       .then((res) => {
         //console.log(typeof(res.data.first_name))
+
         setUser(res.data);
         setAlbums(res.data.albums.length);
         setPhotos(res.data.photos.length);
