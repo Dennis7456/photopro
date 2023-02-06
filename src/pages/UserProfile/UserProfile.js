@@ -24,13 +24,13 @@ const UserProfile = () => {
       window.location.href = "/";
   }
 
+  useEffect(() => {
     const configuration = {
       method: "get",
       url: "http://localhost:5050/profile",
       headers: { Authorization : "Bearer " + token },
   };
 
-  useEffect(() => {
     axios(configuration)
       .then((res) => {
         setUser(res.data);
@@ -53,22 +53,29 @@ const UserProfile = () => {
         <div className="flex justify-center items-center pb-4">{profilePhoto ? <img className="profile-photo rounded-md" src={profilePhoto}></img> : <img className="profile-photo" src={"https://res.cloudinary.com/dchtoojgf/image/upload/v1675696022/blank-profile-picture-png_jztk79.png"}></img>}</div>
         </div>
         <AddPhotoModal/>
-        <div className="flex justify-center text-2xl items-center">
-          <div className="text-primary  text-start px-3 md-text-left">Name: </div><p className="dark:text-on_primary">{ user.first_name } { user.last_name }</p>
+        <div className="text-md">
+          <div className="flex items-center justify-center p-4">
+        <div className="flex justify-center items-center">
+          <div className="text-primary  text-start px-3 ">Name: </div><p className="dark:text-on_primary">{ user.first_name } { user.last_name }</p>
         </div>
-        <div className="flex justify-center text-2xl">
+        <div className="flex justify-center">
           <div className="text-primary  text-start px-3">User Name: </div><p className="dark:text-on_primary">{ user.username }</p>
         </div>
-        <div className="flex justify-center text-2xl">
-          <div className="text-primary text-2xl text-start px-3">Email: </div><p className="dark:text-on_primary">{ user.email }</p>
+        <div className="flex justify-center">
+          <div className="text-primary text-start px-3">Email: </div><p className="dark:text-on_primary">{ user.email }</p>
         </div>
-        <div className="flex justify-center text-2xl">
-          <div className="text-primary text-2xl text-start px-3">Albums: </div><p className="dark:text-on_primary">{ albums }</p>
+        <div className="flex justify-center">
+          <div className="text-primary text-start px-3">Albums: </div><p className="dark:text-on_primary">{ albums }</p>
         </div>
-        <div className="flex justify-center text-2xl">
-          <div className="text-primary text-2xl text-start px-3">Photos: </div><p className="dark:text-on_primary">{ photos }</p>
+        <div className="flex justify-center">
+          <div className="text-primary text-start px-3">Photos: </div><p className="dark:text-on_primary">{ photos }</p>
         </div>
-        <button></button>
+        </div>
+        <div className="flex flex-col justify-center">
+          <div className="text-primary text-center p-4">About me: </div>
+          <div><p className="dark:text-on_primary text-start px-20 pb-4">{ user.bio }</p></div>
+        </div>
+        </div>
         </>
       )
 }

@@ -8,9 +8,8 @@ import AddPhoto from "../../components/AddPhoto/AddPhoto";
 const cookies = new Cookies();
 
 const token = cookies.get('TOKEN');
-const Photos = () => {
+const AllPhotos = () => {
     
-    let [category, setCategory] = useState('happy');
     let [photos, setPhotos] = useState([]);
     let { albumId } = useParams();
     
@@ -18,18 +17,16 @@ const Photos = () => {
     useEffect(() => {
         console.log(albumId)
         const configuration = {
-            method: "post",
-            url: "http://localhost:5050/albums/photos",
+            method: "get",
+            url: "http://localhost:5050/photos",
             headers: { Authorization : "Bearer " + token },
-            data: {
-                albumId
-            },
         }
         
         axios(configuration)
         .then((res) => {
-            //console.log(res.data[0].photos)
-            setPhotos(res.data[0].photos);
+            console.log(res.data)
+            setPhotos(res.data)
+            //setPhotos(res.data[0].photos);
             //console.log("Photos", photos);
         })
         .catch((error) => {
@@ -38,7 +35,7 @@ const Photos = () => {
     }, [])
 
     const handlePhoto = (photoId) => {
-        window.location.href = "/editphoto/" + photoId;
+        window.location.href = "/viewphoto/" + photoId;
         console.log("Photo id",photoId);
     }
 
@@ -64,4 +61,4 @@ const Photos = () => {
     );
 };
 
-export default Photos;
+export default AllPhotos;

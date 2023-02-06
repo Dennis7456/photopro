@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import Cookies from "universal-cookie";
 import { useParams } from "react-router-dom";
-import AddPhoto from "../../components/AddPhoto/AddPhoto";
-
-
+import { useState, useEffect } from "react";
+import Cookies from "universal-cookie";
+import axios from "axios";
 const cookies = new Cookies();
 
 const token = cookies.get('TOKEN');
-const Photos = () => {
-    
-    let [category, setCategory] = useState('happy');
+
+
+
+const OtherPhotos = () => {
+
+    //let [category, setCategory] = useState('happy');
     let [photos, setPhotos] = useState([]);
     let { albumId } = useParams();
     
@@ -37,13 +37,8 @@ const Photos = () => {
         })
     }, [])
 
-    const handlePhoto = (photoId) => {
-        window.location.href = "/editphoto/" + photoId;
-        console.log("Photo id",photoId);
-    }
-
     const photos_disp = photos.map((item, id) => {
-        return <div className="inline-block px-5 py-3 w-80 mx-auto" key={id} onClick={() => handlePhoto(item._id)}>
+        return <div className="inline-block px-5 py-3 w-80 mx-auto" key={id} >
             <div className="max-w-sm rounded-md overflow-hidden shadow-lg">
             <img className="w-full" src={item.slug} alt="album image" />
             <div className="px-6 py-4">
@@ -59,9 +54,9 @@ const Photos = () => {
     return (
 
         <>
-        { photos_disp }{<AddPhoto albumId = {albumId}/>}
+        { photos_disp }
         </>
     );
-};
+}
 
-export default Photos;
+export default OtherPhotos;

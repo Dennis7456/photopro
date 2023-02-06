@@ -15,6 +15,8 @@ const AddPhoto = ({albumId}) => {
     const [category, setCategory] = useState('');
     const [slug, setSlug] = useState("");
     const [imageSelected, setImageSelected] = useState("");
+    const [progess, setProgress] = useState({width: 0});
+    const [upload, setIsUpload] =useState(false);
 
     const uploadImage = (e) => {
         e.preventDefault();
@@ -24,10 +26,17 @@ const AddPhoto = ({albumId}) => {
         const upload_preset = "i7exqrlv";
         formData.append("upload_preset", upload_preset);
 
-        axios.post("https://api.cloudinary.com/v1_1/" + cloud_name + "/image/upload", formData)
+        axios.post("https://api.cloudinary.com/v1_1/" + cloud_name + "/image/upload", formData, {
+            onUploadProgress: progressEvent => {
+                const progress_status = Math.round(progressEvent.loaded / progressEvent.total * 400);
+                setProgress({width: progress_status});
+                console.log("Upload progess: " + Math.round(progressEvent.loaded / progressEvent.total * 400) + "%")
+            }
+        })
         .then((res) => {
             console.log(res);
             setSlug(res.data.secure_url);
+            setIsUpload(true);
         })
         .catch((error) => {
             console.error(error);
@@ -64,7 +73,7 @@ const AddPhoto = ({albumId}) => {
         <div className="p-10 inline-block" onClick={setShowModal}>
         <div className="max-w-sm rounded-md overflow-hidden shadow-lg">
         {/* <img className="w-full album-bg p-7" src={PlusIcon} alt="add album" /> */}
-        <Icon className="bg-primary text-background mdi-icon" path={mdiPlusCircleOutline} size={10} />
+        <Icon className="bg-surface_variant text-background mdi-icon" path={mdiPlusCircleOutline} size={10} />
             <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">Add Photo</div>
                 {/* <p>{album.description}</p> */}
@@ -88,7 +97,7 @@ const AddPhoto = ({albumId}) => {
                 {/*header*/}
                 <div className="flex items-center justify-center p-5 border-solid border-slate-200 rounded-t">
                   <h3 className="text-2xl font-semibold text-center dark:text-on_primary">
-                    Add Album
+                    Add Photo
                   </h3>
                   <button className="p-1 ml-auto bg-transparent border-0 opacity-60 text-error float-right text-3xl leading-none font-semibold outline-none focus:outline-none focus:bg-danger" onClick={() => setShowModal(false)}>
                     <Icon path={mdiCloseCircle} size={1}></Icon>
@@ -100,7 +109,7 @@ const AddPhoto = ({albumId}) => {
                     <div className="p-3 flex">
                         <div>
                         <label className="pb-2 text-start block text-on_background text-sm font-light dark:text-on_primary">Photo Name</label>
-                        <input  className="required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline text-secondary dark:text-on_background" id="name" type="text" placeholder="Photo Name" name="name" value={name} onChange={(e) => setName(e.target.value)}>
+                        <input  className="required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline text-secondary dark:text-on_background" required id="name" type="text" placeholder="Photo Name" name="name" value={name} onChange={(e) => setName(e.target.value)}>
                         </input>
                         </div>
                         {/* <div className="pl-5">
@@ -113,7 +122,7 @@ const AddPhoto = ({albumId}) => {
                         <div>
                         <label className="pb-2 text-start block text-on_background text-sm font-light dark:text-on_primary">Photo Category</label>
                         {/* <textarea className="required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline text-secondary dark:text-on_background" id="description" type="text" placeholder="Album Description" name="description" value={description} onChange={(e) => setDescription(e.target.value)}></textarea> */}
-                        <select className="pb-2 text-start block text-on_background text-sm font-light dark:text-on_primary shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline" name="category" id="category" onChange={(e) => setCategory(e.target.value)} value={category}>
+                        <select className="pb-2 text-start block text-on_background text-sm font-light dark:text-on_primary shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline" required name="category" id="category" onChange={(e) => setCategory(e.target.value)} value={category}>
                             <option value="happy">Happy</option>
                             <option value="excited">Excited</option>
                             <option value="neutral">Neutral</option>
@@ -128,21 +137,29 @@ const AddPhoto = ({albumId}) => {
                         </div> */}
                     </div>
                     <div className="pt-2">
-                    <div className="pl-5">
+                    <div className="pl-5 pb-3">
                         <label className="pb-2 text-start block text-on_background text-sm font-light dark:text-on_primary">Select Photo</label>
-                        <input  className="required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline text-secondary dark:text-on_background" id="profile_photo" type="file" name="profile_photo" onChange={(e) => setImageSelected(e.target.files[0])}>
+                        <input  className="required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline text-secondary dark:text-on_background" required id="profile_photo" type="file" name="profile_photo" onChange={(e) => setImageSelected(e.target.files[0])}>
                         </input>
                     </div>
-                    <div className="pt-7">
-                        <button className="bg-primary rounded-md py-2 px-3 text-md text-on_primary hover:text-on-primary hover:text-primary_container" onClick={uploadImage}>Upload Image</button>
+                    <div className="w-full bg-surface_variant max-w-sm my-2 mx-auto rounded-md overflow-hidden border border-outline">
+                        <div className="bg-tertiary text-xs leading-none py-1" style={progess}></div>
+                    </div>
+                    <div className="pt-2">
+                        { upload ? <button className="bg-tertiary rounded-md py-2 px-3 text-md text-on_primary hover:text-on-primary hover:text-primary_container" disabled>
+                            Image Upload Success!
+                            </button> : <button className="bg-primary rounded-md py-2 px-3 text-md text-on_primary hover:text-on-primary hover:text-primary_container" onClick={uploadImage}>
+                            Upload Image
+                            </button>}
+                        
                     </div>
                     </div>
                     </div>
                 {/* </div> */}
                 {/*footer*/}
-                <div className="flex justify-around items-center text-on-surface-variant">
-                    <div className="px-3 py-2 hover:text-primary dark:text-on_primary hover:font-semibold hover:text-secondary" onClick={handleSubmit}><a href="#">Save</a></div>
-                    <div className="px-3 py-5 hover:text-primary dark:text-on_primary hover:font-semibold hover:text-danger" onClick={() => setShowModal(false)}><a>Cancel</a></div>
+                <div className="flex justify-around items-center text-on-surface-variant pb-3">
+                    { upload ? <div className="text-on_primary px-3 py-2 hover:text-primary_container dark:text-on_primary hover:font-semibold bg-secondary rounded-md px-3" onClick={handleSubmit}><a href="#">Save</a></div> : <div className="px-3 py-2 hover:text-primary dark:text-on_primary hover:font-semibold hover:text-secondary" onClick={handleSubmit}><a href="#">Save</a></div>}
+                    { upload ? <div className=" text-on_primary px-3 py-2 rounded-md hover:text-primary_container dark:text-on_primary hover:font-semibold bg-danger" onClick={() => setShowModal(false)}><a>Cancel</a></div>:<div className="px-3 py-5 hover:text-primary dark:text-on_primary hover:font-semibold hover:text-danger" onClick={() => setShowModal(false)}><a>Cancel</a></div>}
                 </div>
               </div>
               </form>

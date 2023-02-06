@@ -63,7 +63,7 @@ const AddAlbum = () => {
         <>
         <div className="p-10 inline-block" onClick={setShowModal}>
         <div className="max-w-sm rounded-md overflow-hidden shadow-lg">
-        <Icon className="bg-primary text-background mdi-icon" path={mdiPlusCircleOutline} size={10} />
+        <Icon className="bg-surface_variant text-background mdi-icon" path={mdiPlusCircleOutline} size={10} />
             <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">Add Album</div>
             </div>

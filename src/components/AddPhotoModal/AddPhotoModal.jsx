@@ -16,6 +16,7 @@ const AddPhotoModal = () => {
     const [lastName, setLastName] = useState('');
     const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');
+    const [bio, setBio] = useState("");
     const [imageSelected, setImageSelected] = useState("");
     const [profileImage, setProfileImage] = useState("");
 
@@ -52,6 +53,7 @@ const AddPhotoModal = () => {
                 lastName,
                 userName,
                 email,
+                bio,
                 profileImage
             },
         };
@@ -115,6 +117,10 @@ const AddPhotoModal = () => {
                         </input>
                         </div>
                     </div>
+                    <div className="pt-3 pl-5">
+                        <label className="pb-2 text-start block text-on_background text-sm font-light dark:text-on_primary">My bio</label>
+                        <textarea className="required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline text-secondary dark:text-on_background" id="bio" type="text" placeholder="My Bio" name="bio" value={bio} onChange={(e) => setBio(e.target.value)}></textarea>
+                        </div>
                     <div className="pt-3">
                     <div className="pl-5">
                         <label className="pb-2 text-start block text-on_background text-sm font-light dark:text-on_primary">Select Profile Photo</label>

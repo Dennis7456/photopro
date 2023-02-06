@@ -21,7 +21,7 @@ const MyAlbums = () => {
         
         axios(configuration)
         .then((res) => {
-            console.log(res.data[6].cover);
+            console.log(res.data);
             setAlbums(...albums, res.data);
            // console.log("Albums", albums);
         })
@@ -38,15 +38,15 @@ const MyAlbums = () => {
     }
 
     const albums_disp = albums.map((album, id) => {
-        return <div className="p-10 inline-block" key={id} onClick={() => photos_disp(album)}>
+        return <div className="px-5 py-3 w-80 mx-auto inline-block" key={id} onClick={() => photos_disp(album)}>
         <div className="max-w-sm rounded-md overflow-hidden shadow-lg">
-            <img className="w-full album-bg" src={album.cover} alt="album image" />
+            <img className="w-full " src={album.cover} alt="album image" />
             <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">Album: {album.name}</div>
+                <div className="font-bold text-xl mb-2 dark:text-on_primary">Album: {album.name}</div>
                 {/* <p>{album.description}</p> */}
             </div>
             <div className="px-6 pt-4 pb-4">
-                <span className="inline-block bg-surface_variant rounded-md px-3 py-1 text-sm font-semibold text-on_surface mr-2 mb-2">Photos: {album.photos.length}</span>
+                <span className="inline-block bg-surface_variant rounded-md px-3 py-1 text-sm font-semibold text-on_surface mr-2 mb-2 dark:text-on_primary">Photos: {album.photos.length}</span>
             </div>
             </div>
             </div>
@@ -55,7 +55,6 @@ const MyAlbums = () => {
     return (
         <>
         <div className="text-2xl dark:text-on_primary">MyAlbums</div>
-        {/* { albums.length > 0 ? albums_disp : (<div><AddAlbum/></div>)} */}
         {albums_disp}{<AddAlbum/>}
         </>
     )

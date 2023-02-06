@@ -19,6 +19,10 @@ import MyAlbums from './pages/MyAlbums/MyAlbums';
 import Users from './pages/Users/Users';
 import Photos from './pages/Photos/Photos';
 import UserPage from './pages/UserPage/UserPage';
+import OtherPhotos from './pages/OtherPhotos/OtherPhotos';
+import EditPhoto from './pages/EditPhoto/EditPhoto';
+import AllPhotos from './pages/AllPhotos/AllPhotos';
+import Viewphoto from './pages/Viewphoto/Viewphoto';
 const cookies = new Cookies();
 
 const token = cookies.get('TOKEN')
@@ -62,7 +66,10 @@ const App = () => {
         <Route path='/myalbums' element={<MyAlbums/>}></Route>
         <Route path='/users' element={<Users/>}></Route>
         <Route path='/photos/:albumId' element={<Photos/>}></Route>
+        <Route path='/otherphotos/:albumId' element={<OtherPhotos/>}></Route>
+        <Route path='/editphoto/:photoId' element={<EditPhoto/>}></Route>
         <Route path='/user/:userId' element={<UserPage/>}></Route>
+        <Route path='/viewphoto/:photoId' element={<Viewphoto/>}></Route>
       </Routes>
       <section className='dark:bg-on_background'><Footer/></section>
       </UserProvider>
