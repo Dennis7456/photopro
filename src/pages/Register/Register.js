@@ -28,6 +28,7 @@ const Register = () => {
       };
       axios(configuration)
       .then((res) => {
+        window.location.href = "/dashboard";
         console.log(res);
       })
       .catch((error) => {

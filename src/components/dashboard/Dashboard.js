@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import Cookies from "universal-cookie";
-const cookies = new Cookies();
+import AllPhotos from "../../pages/AllPhotos/AllPhotos";
 
+const cookies = new Cookies();
 const token = cookies.get('TOKEN');
 
 const Dashboard = () => {
@@ -10,9 +11,15 @@ const Dashboard = () => {
             window.location.href = "/";
         }
     })
+    //const {user, handleUser} = useContext(UserContext);
+
+    // useEffect(() => {
+    //     handleUser(result.data.email);
+    // })
     return (
         <>
-        <h1 className="dark:text-on_primary">Dashboard</h1>
+        <h1 className="dark:text-on_primary pb-5 text-2xl">All Photos</h1>
+            <AllPhotos/>
         </>
     )
 }
