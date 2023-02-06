@@ -36,7 +36,7 @@ const LoginModal = () => {
       // set configurations
     const configuration = {
       method: "post",
-      url: "http://localhost:5050/login",
+      url: "https://photopro-backend-dennis7456.vercel.app/login",
       data: {
         email,
         password,
@@ -89,9 +89,9 @@ const LoginModal = () => {
             <input  className="required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline text-secondary dark:text-on_background" id="email" type="text" placeholder="Email" name="email" onChange={(e) => setEmail(e.target.value)}></input></div>
             <label className=" pt-5 pb-2 text-start block text-on-background text-sm font-light dark:text-on_primary">Password</label>
             <span className="flex justify-end items-center">
-            {showPassword ? <input  className="required:border-error invalid:border-error shadow border-0 focus:border-1 rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline text-secondary dark:text-on_background rounded-md" id="password" type="text" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value) }></input> : <input  className="dark:text-on_primary rounded-md required:border-error invalid:border-error shadow border-0 focus:border-1 rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline text-secondary" id="password" type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)}></input>}
+            {showPassword ? <input  className="required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline text-secondary dark:text-on_background" id="password" type="text" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value) }></input> : <input  className="required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline text-secondary dark:text-on_background" id="password" type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)}></input>}
             <button className="absolute mr-4 hover:text-info " onClick={handleClick}>
-                {showPassword ? <Icon className="dark:text-on_primary" path={ mdiEyeOutline } size={1}></Icon> : <Icon path={ mdiEyeOffOutline } size={1} className=''></Icon>}
+                {showPassword ? <Icon className="dark:text-on_background hover:text-info" path={ mdiEyeOutline } size={1}></Icon> : <Icon className="dark:text-on_background hover:text-info" path={ mdiEyeOffOutline } size={1}></Icon>}
             </button>
             </span>
                 </div>

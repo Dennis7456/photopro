@@ -17,7 +17,7 @@ const Register = () => {
         // set configurations
         const configuration = {
         method: "post",
-        url: "http://localhost:5050/register",
+        url: "https://photopro-backend-dennis7456.vercel.app/register",
         data: {
             firstName,
             lastName,
