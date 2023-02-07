@@ -20,11 +20,7 @@ const AllPhotos = () => {
         
         const configuration = {
             method: "get",
-<<<<<<< HEAD
             url: BASE_URL + "photos",
-=======
-            url: "https://photopro-backend-dennis7456.vercel.app/photos",
->>>>>>> main
             headers: { Authorization : "Bearer " + token },
         }
         console.log(configuration);
