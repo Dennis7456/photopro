@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import LogoWhite from '../../assets/img/logo-white.png';
 import LogoDark from '../../assets/img/logo-dark.png';
 import { useLocation, Link } from 'react-router-dom';
-import UserContext from '../../context/UserContext';
+
 import httpClient from '../../config/httpClient';
 import Hero from '../Hero/Hero';
 import ThemeContext from '../../context/ThemeContext';
@@ -18,7 +18,7 @@ const token = cookies.get('TOKEN')
 const NavigationBar = () => {
 
     const location = useLocation();
-    const user = useContext(UserContext);
+   
     const {theme, handleThemeSwitch} = useContext(ThemeContext);
     const navigate = useNavigate();
 

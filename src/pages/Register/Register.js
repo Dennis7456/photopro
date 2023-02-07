@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import BASE_URL from "../../config/httpClient";
+import BASE_URL from "../../config/httpClient.tsx";
 
 const Register = () => {
     

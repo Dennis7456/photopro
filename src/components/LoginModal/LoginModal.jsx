@@ -3,7 +3,6 @@ import httpClient from "../../config/httpClient";
 import './LoginModal.css'
 import Icon from '@mdi/react';
 import { mdiCloseCircle, mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js';
-import UserContext  from "../../context/UserContext";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import BASE_URL from "../../config/httpClient";
@@ -17,7 +16,6 @@ const LoginModal = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const {user, handleUser} = useContext(UserContext);
 
     
 
@@ -50,7 +48,7 @@ const LoginModal = () => {
       cookies.set("TOKEN", result.data.token, {
         path: "/",  
       });
-      handleUser(result.data.email);
+      
       window.location.href = "/dashboard";
       console.log(result.data);
     })

@@ -11,13 +11,13 @@ const cookies = new Cookies();
 const token = cookies.get('TOKEN');
 const Photos = () => {
     
-    let [category, setCategory] = useState('happy');
+    // let [category, setCategory] = useState('happy');
     let [photos, setPhotos] = useState([]);
     let { albumId } = useParams();
     
 
     useEffect(() => {
-        console.log(albumId)
+        //console.log(albumId)
         const configuration = {
             method: "post",
             url: BASE_URL + "albums/photos",
@@ -54,8 +54,6 @@ const Photos = () => {
             </div>
         </div>
     })
-
-    
 
     return (
 
