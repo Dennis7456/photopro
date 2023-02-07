@@ -14,7 +14,7 @@ const cookies = new Cookies();
 const token = cookies.get('TOKEN');
 
 const UserProfile = () => {
-    const [user, setUser] = useState('');
+    const [user, setUser] = useState({});
     const [message, setMessage] = useState('');
     const [albums, setAlbums] = useState(0);
     const [photos, setPhotos] = useState(0);
@@ -35,7 +35,7 @@ const UserProfile = () => {
 
     axios(configuration)
       .then((res) => {
-        //console.log(typeof(res.data.first_name))
+        console.log(typeof(res.data.first_name))
 
         setUser(res.data);
         setAlbums(res.data.albums.length);
@@ -79,8 +79,6 @@ const UserProfile = () => {
           <div><p className="dark:text-on_primary text-start px-20 pb-4">{ user.bio }</p></div>
         </div>
         </div>
-        <h1>User Profile</h1>
-        <p>{ user }</p>
         </>
       )
 }

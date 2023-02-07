@@ -1,10 +1,6 @@
 import { useEffect } from "react";
 import Cookies from "universal-cookie";
 import AllPhotos from "../../pages/AllPhotos/AllPhotos";
-<<<<<<< HEAD:src/components/dashboard/Dashboard.jsx
-const cookies = new Cookies();
-=======
->>>>>>> main:src/components/dashboard/Dashboard.js
 
 const cookies = new Cookies();
 const token = cookies.get('TOKEN');
@@ -23,7 +19,6 @@ const Dashboard = () => {
     return (
         <>
         <h1 className="dark:text-on_primary pb-5 text-2xl">All Photos</h1>
-<<<<<<< HEAD:src/components/dashboard/Dashboard.jsx
         {/* <div className="flex justify-center items-center">
             <div className="text-on_primary px-3">
                 <a className="bg-secondary rounded-md px-3 py-2" href="#">Happy</a>
@@ -41,8 +36,6 @@ const Dashboard = () => {
                 <a className="bg-on_primary_container rounded-md px-3 py-2 hover:bg-primary" href="#">Lonely</a>
                 </div>
             </div> */}
-=======
->>>>>>> main:src/components/dashboard/Dashboard.js
             <AllPhotos/>
         </>
     )
