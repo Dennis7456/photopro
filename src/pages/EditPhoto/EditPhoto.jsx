@@ -18,7 +18,7 @@ const EditPhoto = () => {
     useEffect(() => {
         const configuration = {
           method: "post",
-          url: "https://photopro-backend-dennis7456.vercel.app/photo",
+          url: BASE_URL + "photo",
           headers: { Authorization : "Bearer " + token },
           data: {
             photoId
