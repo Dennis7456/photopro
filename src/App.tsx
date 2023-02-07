@@ -10,7 +10,6 @@ import BgPhoto from './assets/userimages/bee-7707052.jpg';
 import Footer from './pages/Footer/Footer';
 import { ThemeProvider } from './context/ThemeContext';
 import Register from './pages/Register/Register';
-import { UserProvider } from './context/UserContext';
 import UserProfile from './pages/UserProfile/UserProfile';
 // import Dashboard from './components/dashboard/Dashboard';
 import Dashboard from './components/dashboard/Dashboard.jsx';
@@ -40,7 +39,7 @@ const App = () => {
   return (
     <div className="App">
       <ThemeProvider>
-        <UserProvider>
+        
       <section className='px-6 py-4 bg-surface dark:bg-on_background'>
         { token ? <Header /> : <NavigationBar /> }
       </section>
@@ -73,7 +72,6 @@ const App = () => {
         <Route path='/viewphoto/:photoId' element={<Viewphoto/>}></Route>
       </Routes>
       <section className='dark:bg-on_background'><Footer/></section>
-      </UserProvider>
       </ThemeProvider>
       </div>
   );

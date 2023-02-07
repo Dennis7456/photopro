@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import UserContext from "../../context/UserContext";
+
 import httpClient from "../../config/httpClient";
 import LoginModal from "../../components/LoginModal/LoginModal.jsx";
 import Hero from "../../components/Hero/Hero";
@@ -14,7 +14,7 @@ const token = cookies.get('TOKEN')
 
 const Header =  () => {
     const location = useLocation();
-    const user = useContext(UserContext);
+    
     const {theme, handleThemeSwitch} = useContext(ThemeContext);
     const navigate = useNavigate();
     

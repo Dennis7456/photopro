@@ -10,7 +10,7 @@ const Hero = () => {
     return (
     <>
     <ThemeContext.Provider value={theme}>
-    <button onClick={handleThemeSwitch} className="p-4 bg-primary dark:bg-on_primary dark:text-primary text-white rounded-full w-12 h-12 flex justify-center items-center">
+    <button id="theme-toggle" onClick={handleThemeSwitch} className="p-4 bg-primary dark:bg-on_primary dark:text-primary text-white rounded-full w-12 h-12 flex justify-center items-center">
                         { theme === 'light' ? <BsMoonFill /> : <BsFillSunFill /> }
     </button>
     </ThemeContext.Provider>
